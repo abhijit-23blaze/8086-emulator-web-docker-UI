@@ -1,23 +1,23 @@
 import { createTheme } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 
-// A custom theme for this app
+// Cyber theme (dark mode) — black with deep green and neon accents
 const theme = createTheme({
   palette: {
     type: "dark",
     primary: {
-      main: "#F4C430",
-      light: "rgb(255, 197, 112)",
-      dark: "rgb(200, 147, 89)",
-      contrastText: "rgba(0, 0, 0, 0.87)",
+      main: "#39ff14", // neon green
+      light: "#6bff51",
+      dark: "#00cc0a",
+      contrastText: "#031b0a",
     },
     secondary: {
-      main: "#101010",
-      contrastText: "#FCFDFA",
+      main: "#0a0a0a",
+      contrastText: "#c8facc",
     },
     background: {
-      paper: "#424242",
-      default: "#303030",
+      paper: "#0f0f10",
+      default: "#050607",
     },
     error: {
       main: red.A400,
@@ -27,6 +27,15 @@ const theme = createTheme({
     fontFamily: ["JetBrains Mono", "Roboto", "Arial", "sans-serif"].join(","),
     button: {
       fontFamily: ["JetBrains Mono", "Roboto", "Arial", "sans-serif"].join(","),
+      textTransform: "none",
+    },
+  },
+  overrides: {
+    MuiAppBar: {
+      colorSecondary: {
+        backgroundColor: "#0a0a0a",
+        color: "#c8facc",
+      },
     },
   },
 });

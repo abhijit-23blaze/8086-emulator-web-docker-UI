@@ -95,7 +95,7 @@ function Navbar() {
                   style={{
                     width: 32,
                     // filter: currentTheme === "dark" ? "invert(1)" : "none",
-                    fill: currentTheme === "dark" ? "#ccc" : "#111",
+                    fill: currentTheme === "dark" ? "#ccffd8" : "#0c3",
                   }}
                 />
               </a>
@@ -112,7 +112,7 @@ function Navbar() {
                   style={
                     currentTheme === "normal"
                       ? { fontWeight: "bold" }
-                      : { color: currentTheme === "dark" ? "#ccc" : "#111" }
+                      : { color: currentTheme === "dark" ? "#ccffd8" : "#0c3" }
                   }
                   className={classes.info}
                 >
@@ -121,7 +121,8 @@ function Navbar() {
               </IconButton>
             </Tooltip>
           )}
-          {loc.pathname !== "/8086-emulator-web/compile" && (
+          {/* Hide compiler nav when already on default (root) or /compile */}
+          {!(loc.pathname === "/8086-emulator-web/" || loc.pathname === "/8086-emulator-web/compile") && (
             <Tooltip title="Compiler Page" arrow>
               <IconButton
                 onClick={() => history.push("/8086-emulator-web/compile")}

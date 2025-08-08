@@ -22,7 +22,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Popover from "@material-ui/core/Popover";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -147,6 +147,8 @@ let outputHolder = "";
 //Compiler Page
 function Compiler(props) {
   const matches = useMediaQuery("(max-width:1024px)");
+  const muiTheme = useTheme();
+  const isDark = muiTheme.palette.type === "dark";
   const startIntervalTask = () => {
     if (intervalHandler !== null) {
       return;
@@ -842,7 +844,7 @@ int 0x10                ; BIOS interrupt`
         >
           <img
             style={
-              currentTheme === "dark"
+              isDark
                 ? { filter: "invert(0.7)", height: "2rem" }
                 : { height: "2rem", opacity: 0.4 }
             }
@@ -891,7 +893,7 @@ int 0x10                ; BIOS interrupt`
                   <Typography>
                     <AccessibilityIcon
                       style={{
-                        fill: currentTheme === "dark" ? "#ccc" : "black",
+                        fill: isDark ? "#ccc" : "black",
                       }}
                     />
                   </Typography>
@@ -1137,7 +1139,7 @@ int 0x10                ; BIOS interrupt`
                 <DownloadButton
                   style={{
                     width: 24,
-                    fill: currentTheme === "dark" ? "#ccc" : "black",
+                    fill: isDark ? "#ccc" : "black",
                   }}
                 />
               </Tooltip>
@@ -1190,7 +1192,7 @@ int 0x10                ; BIOS interrupt`
                 <Examples
                   style={{
                     width: 25,
-                    fill: currentTheme === "dark" ? "#ccc" : "black",
+                    fill: isDark ? "#ccc" : "black",
                   }}
                 />
               </Tooltip>
@@ -1213,7 +1215,7 @@ int 0x10                ; BIOS interrupt`
                   <CopyIcon
                     style={{
                       width: 24,
-                      fill: currentTheme === "dark" ? "#ccc" : "black",
+                      fill: isDark ? "#ccc" : "black",
                     }}
                   />
                 </span>
@@ -1257,7 +1259,7 @@ int 0x10                ; BIOS interrupt`
               value={code}
               fontSize={14}
               showPrintMargin={false}
-              theme={currentTheme === "normal" ? "dreamweaver" : "twilight"}
+              theme={isDark ? "twilight" : "dreamweaver"}
               onChange={onChange}
               name="CODE_EDITOR"
               editorProps={{ $blockScrolling: false }}

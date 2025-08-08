@@ -60,7 +60,7 @@ function Instruction(props) {
       <AccordionSummary
         expandIcon={
           <ExpandMoreIcon
-            style={currentTheme === "dark" ? { filter: "invert(1)" } : null}
+            style={currentTheme === "dark" ? { filter: "invert(1)" } : {}}
           />
         }
         aria-controls={props.name}

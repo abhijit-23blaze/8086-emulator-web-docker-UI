@@ -3,6 +3,8 @@
 body,
 html {
 	height: 100%;
+	background: radial-gradient(ellipse at top, #0b0f0c 0%, #050607 60%);
+	background-attachment: fixed;
 }
 
 #page-container {
@@ -18,10 +20,10 @@ html {
 }
 
 body {
-	margin: 0;
-	font-family: "JetBrains Mono", monospace;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: "JetBrains Mono", monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {

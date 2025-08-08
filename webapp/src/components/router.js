@@ -27,7 +27,7 @@ function RootRouter() {
     }
     load();
   }, []);
-  const invalidRoute = () => <Redirect to="/8086-emulator-web/" />; //This will send user back to homepage
+  const invalidRoute = () => <Redirect to="/8086-emulator-web/" />; // Send user to default (compiler) page
 
   return (
     <Router>
@@ -35,7 +35,12 @@ function RootRouter() {
         <Navbar />
         <div className="App">
           <Switch>
-            <Route exact path="/8086-emulator-web/" component={Home} />
+            {/* Make compiler the default page */}
+            <Route
+              exact
+              path="/8086-emulator-web/"
+              component={() => <Compiler wasm={wasm} />}
+            />
             <Route
               exact
               path="/8086-emulator-web/compile"
